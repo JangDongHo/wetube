@@ -1,0 +1,21 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "The best way to watch videos.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JangDongHo/wetube.git"
+  },
+  "scripts": {
+    "win": "node index.js"
+  },
+  "author": "Jang Dongho<donghoo158@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JangDongHo/wetube/issues"
+  },
+  "homepage": "https://github.com/JangDongHo/wetube#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
