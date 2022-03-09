@@ -1,47 +1,21 @@
 import express from "express";
 
+const PORT = 4000;
+
 const app = express();
 
-const urlLogger = (req, res, next) => {
-  console.log(`Path: ${req.url}`);
+const logger =  (req, res, next) => {
+  console.log(` ${req.method} ${req.url}`);
   next();
-};
-
-const timeLogger = (req, res, next) => {
-  const now = new Date();
-  console.log(
-    `Time: ${now.getFullYear()}.${now.getMonth() + 1}.${now.getDate()}`
-  );
-  next();
-};
-
-const securityLogger = (req, res, next) => {
-  const protocol = req.protocol;
-  if (protocol === "https") {
-    console.log("Secure");
-  } else {
-    console.log("Insecure");
-  }
-  next();
-};
-
-const protectorMiddleware = (req, res, next) => {
-  const url = req.url;
-  if (url === "/protected") {
-    res.send("Do not allowed");
-  }
-  next();
-};
+}
 
 const handleHome = (req, res) => {
   return res.end();
 };
 
-app.use(urlLogger, timeLogger, securityLogger, protectorMiddleware);
-app.get("/", handleHome);
+app.get("/", logger, handleHome);
 
-const handleListening = () => {
-  console.log("Server Start!");
-};
+const handleListening = () => 
+  console.log(`Server listening on port http://localhost:${PORT}`);
 
-app.listen(handleListening);
+app.listen(PORT, handleListening);
