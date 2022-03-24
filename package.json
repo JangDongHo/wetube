@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/JangDongHo/wetube#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.3",
     "mongoose": "^6.2.7",
     "morgan": "^1.10.0",
